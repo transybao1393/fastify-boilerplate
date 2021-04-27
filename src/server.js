@@ -12,7 +12,7 @@ fastify.register(system)
 fastify.register(router)
 
 
-fastify.listen(3000, (err, address) => {
+fastify.listen(process.env.PORT, (err, address) => {
     if (err) throw err
     // Server is now listening on ${address}
 })
