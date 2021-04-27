@@ -1,5 +1,6 @@
 async function routes (fastify) {
-    fastify.register(require('../application/users/UserRouter'), { prefix: '/api' })
-    fastify.register(require('../application/classes/ClassRouter'), { prefix: '/api' })
+    const v1 = '/api';
+    fastify.register(require('../application/user/user.router'), { prefix: v1 })
+    fastify.register(require('../application/class/class.router'), { prefix: v1 })
 }
 module.exports = routes;

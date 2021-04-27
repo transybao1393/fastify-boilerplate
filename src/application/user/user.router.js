@@ -1,3 +1,5 @@
+const userController = require('./user.controller');
+
 module.exports = async function (fastify) {
     fastify.route({
         method: 'GET',
@@ -16,8 +18,9 @@ module.exports = async function (fastify) {
               }
             }
         },
-        handler:  async (req, reply) => {
-            return "asdasdda";
+        preHandler: [],
+        handler: async (req, reply) => { 
+            return userController.findUsers(req);
         }
     })
 }
