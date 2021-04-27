@@ -1,16 +1,12 @@
 const fastify = require('fastify')({ logger: true });
 const db = require('./db/connect');
+const system = require('./system');
+const router = require('./router');
 
-// await fastify.register(require('fastify-express'))
-// fastify.use(require('cors')())
-// fastify.use(require('dns-prefetch-control')())
-// fastify.use(require('frameguard')())
-// fastify.use(require('hsts')())
-// fastify.use(require('ienoopen')())
-// fastify.use(require('x-xss-protection')())
-fastify.use(require('./router'))
+fastify.register(system)
+fastify.register(router)
 
 fastify.listen(3000, (err, address) => {
     if (err) throw err
     // Server is now listening on ${address}
-  })
+})
